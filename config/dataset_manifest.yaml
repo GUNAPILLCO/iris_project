@@ -1,0 +1,220 @@
+# GENERADO AUTOMATICAMENTE por src/build_dataset_manifest.py -- no editar a mano.
+# Manifest reproducible del snapshot de data/00_source/. data/00_source/ es READ ONLY;
+# este archivo es la huella de integridad de ese snapshot, no una copia de los datos.
+#
+# EXCEPCION: el campo superseded_version_id (y su nota) se anadio a mano el
+# 2026-08-14, tras regenerar este archivo con el nuevo esquema determinista de
+# version_id, para conservar el historial del identificador anterior. No
+# forma parte de la salida generica del script porque es historial especifico
+# de esta migracion puntual, no una propiedad reutilizable de cualquier
+# snapshot futuro.
+
+snapshot:
+  version_id: IRIS-MNQ-SRC-20191223_20260731-e382a75ac222
+  superseded_version_id: IRIS-MNQ-SRC-2026-08-14-e382a75a
+  superseded_version_id_nota: "Identificador anterior del mismo contenido exacto (mismo hash_snapshot_sha256 de abajo), generado bajo el esquema previo que embebia la fecha de ejecucion (no determinista). Sustituido el 2026-08-14 por el version_id actual, derivado unicamente del contenido. No representa ningun cambio en los datos."
+  version_id_esquema: "IRIS-MNQ-SRC-<primer_timestamp:YYYYMMDD>_<ultimo_timestamp:YYYYMMDD>-<12 caracteres de hash_snapshot_sha256>"
+  version_id_nota: "Determinista respecto del contenido: no usa datetime.now() en ningun punto. Dos ejecuciones sobre el mismo contenido exacto de data/00_source/ producen siempre el mismo version_id, aunque fecha_generacion_utc difiera entre ejecuciones. El rango de fechas viene de los timestamps tal como estan exportados en los datos (zona horaria aun no verificada, ver CLAUDE.md / IRIS_KNOWLEDGE_SYNTHESIS.md A3/D1); fecha_generacion_utc si es UTC real porque se genera con datetime.now(timezone.utc)."
+  fecha_generacion_utc: "2026-08-14T03:11:30Z"
+  n_archivos: 27
+  filas_totales: 2329783
+  bytes_totales: 122523200
+  cobertura_calendario:
+    primer_timestamp: "2019-12-23 03:01:00"
+    ultimo_timestamp: "2026-07-31 20:10:00"
+  hash_snapshot_sha256: e382a75ac2222c0391a777d597459fab439e606a545daf73d2da2d512260d32c
+  contrato_incompleto:
+    archivo: 26_mnq_09_26.Last.txt
+    motivo: "Contrato vigente aun no expirado en la fecha del snapshot; el archivo crecera en una futura exportacion."
+  nota_versionado: "Una exportacion futura con mas datos constituye una nueva version del snapshot (nuevo version_id) y no sobrescribe conceptualmente esta version."
+
+archivos:
+  - nombre: 00_mnq_03_20.Last.txt
+    bytes: 3957944
+    filas: 81660
+    primer_timestamp: "2019-12-23 03:01:00"
+    ultimo_timestamp: "2020-03-20 13:30:00"
+    sha256: 6e006d56b25f20ffce76cff71dd765de81865987e5a5cd9a867f75c65756c7c3
+    completo: true
+  - nombre: 01_mnq_06_20.Last.txt
+    bytes: 4205611
+    filas: 86069
+    primer_timestamp: "2020-03-23 03:01:00"
+    ultimo_timestamp: "2020-06-19 13:30:00"
+    sha256: f7c77cb3e8d07c5764d5e0428036867de4bc2fbb5492d41a26921e4b45e3eaf3
+    completo: true
+  - nombre: 02_mnq_09_20.Last.txt
+    bytes: 4591844
+    filas: 87482
+    primer_timestamp: "2020-06-22 03:01:00"
+    ultimo_timestamp: "2020-09-18 13:30:00"
+    sha256: caf4266bca6794c732433f20b63d24f02c6e49081aeb7f9ab4b1517b64b3d6d8
+    completo: true
+  - nombre: 03_mnq_12_20.Last.txt
+    bytes: 4589110
+    filas: 86824
+    primer_timestamp: "2020-09-21 03:01:00"
+    ultimo_timestamp: "2020-12-18 03:00:00"
+    sha256: 6bd51e2b5515731f37f0ddd37149c42cfe1ba47ea8b651a1d2293559a9a88f32
+    completo: true
+  - nombre: 04_mnq_03_21.Last.txt
+    bytes: 4471087
+    filas: 84599
+    primer_timestamp: "2020-12-21 03:01:00"
+    ultimo_timestamp: "2021-03-19 13:30:00"
+    sha256: d52516d2e9100acfc626415f36a90f479a6e7f5e4d0a5a474823146d45f54827
+    completo: true
+  - nombre: 05_mnq_06_21.Last.txt
+    bytes: 4600068
+    filas: 87090
+    primer_timestamp: "2021-03-22 03:01:00"
+    ultimo_timestamp: "2021-06-18 13:30:00"
+    sha256: 05ebe4375249796377b0def08bd4628c3e0f72ec37d93645a4f9d766885eb6ae
+    completo: true
+  - nombre: 06_mnq_09_21.Last.txt
+    bytes: 4644033
+    filas: 88205
+    primer_timestamp: "2021-06-21 03:01:00"
+    ultimo_timestamp: "2021-09-17 13:30:00"
+    sha256: 3b2b85e5e56104a6655d235ee5545984a7159cb4e52193794d81bea2baf787b3
+    completo: true
+  - nombre: 07_mnq_12_21.Last.txt
+    bytes: 4674936
+    filas: 88318
+    primer_timestamp: "2021-09-20 03:01:00"
+    ultimo_timestamp: "2021-12-17 14:30:00"
+    sha256: eda66142679582f2af184067ba651f0033d002b124acfeebd46b3133eb480e41
+    completo: true
+  - nombre: 08_mnq_03_22.Last.txt
+    bytes: 4620304
+    filas: 87112
+    primer_timestamp: "2021-12-20 03:01:00"
+    ultimo_timestamp: "2022-03-18 13:30:00"
+    sha256: f1c862e5b9d4745ec5b5a32f2916ae0b0e084079d2de10779ece1c24ab8a79ba
+    completo: true
+  - nombre: 09_mnq_06_22.Last.txt
+    bytes: 4632495
+    filas: 87336
+    primer_timestamp: "2022-03-21 03:01:00"
+    ultimo_timestamp: "2022-06-17 13:30:00"
+    sha256: 7a428a7a9985defd835e60281dab66b4e16278f62f464e72527174a09b0f3d06
+    completo: true
+  - nombre: 10_mnq_09_22.Last.txt
+    bytes: 4674863
+    filas: 88207
+    primer_timestamp: "2022-06-20 03:01:00"
+    ultimo_timestamp: "2022-09-16 13:55:00"
+    sha256: 5330cda7d2f93620265453079b4da2f68b7eeffec3d798fa75c13b64e33b76df
+    completo: true
+  - nombre: 11_mnq_12_22.Last.txt
+    bytes: 4657755
+    filas: 87830
+    primer_timestamp: "2022-09-19 03:01:00"
+    ultimo_timestamp: "2022-12-16 14:30:00"
+    sha256: 0bef507cfbc4a81da3da2cd4a0f3a421c045c73d2fbf55c4f5a9792c6d630189
+    completo: true
+  - nombre: 12_mnq_03_23.Last.txt
+    bytes: 4530616
+    filas: 85736
+    primer_timestamp: "2022-12-19 03:01:00"
+    ultimo_timestamp: "2023-03-17 13:30:00"
+    sha256: 505949e13d7f4fc12af4d54137f5a2e85afda7ef90eb3fd4b013e3f3ce0cbfdb
+    completo: true
+  - nombre: 13_mnq_06_23.Last.txt
+    bytes: 4635304
+    filas: 87931
+    primer_timestamp: "2023-03-20 03:01:00"
+    ultimo_timestamp: "2023-06-16 13:30:00"
+    sha256: 0dc34dfc8f1c808b08d01211d131953fc88e379be00fe5adce70b361341d5e48
+    completo: true
+  - nombre: 14_mnq_09_23.Last.txt
+    bytes: 4645180
+    filas: 88002
+    primer_timestamp: "2023-06-19 03:01:00"
+    ultimo_timestamp: "2023-09-15 13:30:00"
+    sha256: c37e7e8993edd611149cdd206a05432cae327c1a7b05766c3028e4ad0e0dbeb4
+    completo: true
+  - nombre: 15_mnq_12_23.Last.txt
+    bytes: 4673344
+    filas: 88448
+    primer_timestamp: "2023-09-18 03:01:00"
+    ultimo_timestamp: "2023-12-15 14:30:00"
+    sha256: b100340b5650626e336c257e6f33edea8074f1128e6b3048b4ec767f4ba97176
+    completo: true
+  - nombre: 16_mnq_03_24.Last.txt
+    bytes: 4529657
+    filas: 85777
+    primer_timestamp: "2023-12-18 03:01:00"
+    ultimo_timestamp: "2024-03-15 13:30:00"
+    sha256: 25eadcc629a6c2298f156ee73498a20bd34e277f782b2d0fa48642e4f3fc6105
+    completo: true
+  - nombre: 17_mnq_06_24.Last.txt
+    bytes: 4961330
+    filas: 93916
+    primer_timestamp: "2024-03-18 03:01:00"
+    ultimo_timestamp: "2024-06-21 13:30:00"
+    sha256: 1f8a2c641d566239ef4169dda0b2cc08347d9262c51109556fb3a4bc1f780d2c
+    completo: true
+  - nombre: 18_mnq_09_24.Last.txt
+    bytes: 4666847
+    filas: 88216
+    primer_timestamp: "2024-06-24 03:01:00"
+    ultimo_timestamp: "2024-09-21 01:19:00"
+    sha256: f1c77b12113d087609861b2bf1ee10082b92a563b7c6ca68f11079c1302240c1
+    completo: true
+  - nombre: 19_mnq_12_24.Last.txt
+    bytes: 4674592
+    filas: 88498
+    primer_timestamp: "2024-09-23 03:01:00"
+    ultimo_timestamp: "2024-12-20 21:30:00"
+    sha256: 0a22c3e499c954e8dc91c62ec7fbd2c7ad8c7f8611a81a986fbc271148c38be7
+    completo: true
+  - nombre: 20_mnq_03_25.Last.txt
+    bytes: 4933978
+    filas: 93219
+    primer_timestamp: "2024-12-12 03:01:00"
+    ultimo_timestamp: "2025-03-22 15:03:00"
+    sha256: 0009897fa9cfa92823b8089520309fa612b0b40cc75f8b3c06877ae63f5077b8
+    completo: true
+  - nombre: 21_mnq_06_25.Last.txt
+    bytes: 5123134
+    filas: 96755
+    primer_timestamp: "2025-03-13 03:01:00"
+    ultimo_timestamp: "2025-06-22 13:53:00"
+    sha256: 446445bff15cb3371366c224e97f069e710d96edce0432fe03f268595a2b5df7
+    completo: true
+  - nombre: 22_mnq_09_25.Last.txt
+    bytes: 4373635
+    filas: 82697
+    primer_timestamp: "2025-06-23 03:01:00"
+    ultimo_timestamp: "2025-09-19 13:30:00"
+    sha256: d7a2943ae48f136bbb2c9faf376363a3fcce55845e1f17572047e012e26e5a58
+    completo: true
+  - nombre: 23_mnq_12_25.Last.txt
+    bytes: 4588714
+    filas: 86472
+    primer_timestamp: "2025-09-22 03:01:00"
+    ultimo_timestamp: "2025-12-19 14:30:00"
+    sha256: 2ce2747309711db38bea218194afe5d75b85adb27e05cfe4852912ea6093c88d
+    completo: true
+  - nombre: 24_mnq_03_26.Last.txt
+    bytes: 4381422
+    filas: 82549
+    primer_timestamp: "2025-12-22 03:01:00"
+    ultimo_timestamp: "2026-03-20 13:31:00"
+    sha256: 54d4986b1d6dee87db1b9a2e215db04691cd3e9d31b5ca165a8790de60ef0b6d
+    completo: true
+  - nombre: 25_mnq_06_26.Last.txt
+    bytes: 4616269
+    filas: 86820
+    primer_timestamp: "2026-03-23 03:01:00"
+    ultimo_timestamp: "2026-06-18 13:30:00"
+    sha256: 97e940a2c05f901c0e927d25da485efec11f27c37a4a0ac5cde5d85f3a169771
+    completo: true
+  - nombre: 26_mnq_09_26.Last.txt
+    bytes: 2869128
+    filas: 54015
+    primer_timestamp: "2026-06-08 03:03:00"
+    ultimo_timestamp: "2026-07-31 20:10:00"
+    sha256: 22ca00f71a1f0d7e4720ed17ce917041d8727e80debfd1005089353694fbeb96
+    completo: false

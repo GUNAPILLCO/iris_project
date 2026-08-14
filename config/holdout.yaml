@@ -1,0 +1,90 @@
+# Configuracion de gobernanza -- frontera del hold-out final de IRIS.
+# Aprobado por el usuario (Alternativa B). Estado LOCKED: no debe modificarse sin
+# una nueva aprobacion explicita del usuario, y su contenido no debe usarse para
+# inferir nada sobre el comportamiento, la rentabilidad o la predictibilidad
+# del propio hold-out.
+#
+# Referencia normativa: CLAUDE.md (regla permanente 5) e
+# docs/IRIS_KNOWLEDGE_SYNTHESIS.md.
+
+holdout:
+  estado: LOCKED
+  dataset_version: IRIS-MNQ-SRC-20191223_20260731-e382a75ac222
+  dataset_version_nota: "Migrado el 2026-08-14 desde IRIS-MNQ-SRC-2026-08-14-e382a75a (mismo contenido, mismo hash_snapshot_sha256; ver config/dataset_manifest.yaml, superseded_version_id)."
+  dataset_manifest_ref: config/dataset_manifest.yaml
+
+  frontera:
+    inicio: "2025-06-23 00:00:00"
+    fin: "2026-07-31 20:10:00"
+    fin_nota: "Ultimo timestamp del snapshot congelado (dataset_version arriba). No es una fecha de calendario elegida; es el limite real de los datos disponibles en este snapshot."
+
+  contratos_incluidos:
+    - 22_mnq_09_25.Last.txt
+    - 23_mnq_12_25.Last.txt
+    - 24_mnq_03_26.Last.txt
+    - 25_mnq_06_26.Last.txt
+    - 26_mnq_09_26.Last.txt   # incompleto -- ver config/dataset_manifest.yaml, contrato_incompleto
+
+  proporcion_aprox:
+    filas_holdout: 392553
+    filas_investigacion: 1937230
+    filas_totales: 2329783
+    pct_holdout: 16.9
+    pct_investigacion: 83.1
+
+  motivo_eleccion: >
+    Se eligio esta frontera porque (a) reserva aproximadamente el 16.9% del
+    snapshot actual, (b) cubre mas de un ano calendario de datos recientes,
+    (c) coincide con una transicion de contrato sin solapamiento temporal
+    entre 21_mnq_06_25 y 22_mnq_09_25 (frontera contractual limpia, a
+    diferencia de otras tres transiciones del snapshot que si solapan), y
+    (d) conserva aproximadamente el 83.1% del snapshot para la fase de
+    investigacion. No se afirma, porque no ha sido medido, que el hold-out
+    contenga varios regimenes de mercado ni que tenga potencia estadistica
+    suficiente para ninguna conclusion: ambas propiedades quedan sin evaluar
+    hasta que, en su caso, se autorice expresamente un acceso al hold-out
+    para comprobarlas.
+
+  prohibiciones_de_acceso:
+    - "No debe usarse para exploracion."
+    - "No debe usarse para estadisticas descriptivas orientadas a decisiones."
+    - "No debe usarse para seleccion metodologica."
+    - "No debe usarse para tuning."
+    - "No debe usarse para comparacion de alternativas."
+    - "No debe usarse para evaluacion predictiva."
+    - "No debe usarse para ninguna otra decision de investigacion."
+    - "Permitido unicamente: comprobaciones estructurales estrictamente necesarias (p. ej. integridad de esquema o de timestamps) y transformaciones deterministas previamente especificadas y congeladas a partir del conjunto de investigacion, siempre que sus resultados no se usen para modificar esas decisiones."
+    - "Todo acceso al hold-out, del tipo que sea, debe quedar trazado en experiments/registro.tsv."
+    - "Cualquier acceso fuera de estos casos requiere autorizacion explicita del usuario para ese acceso concreto."
+
+  exposicion_pre_lock:
+    estado: "Existe exposicion estructural previa al bloqueo. No es una omision: se documenta aqui explicitamente."
+    descripcion: >
+      Antes de que esta frontera quedara LOCKED, el intento 0001 (QA,
+      2026-08-13) ejecuto un escaneo estructural de solo lectura sobre los 27
+      archivos de data/00_source/, incluidos los 5 archivos
+      (22_mnq_09_25 a 26_mnq_09_26) que esta configuracion reserva ahora como
+      hold-out. Esa exposicion es real y queda registrada, no negada.
+    que_se_hizo_sobre_el_periodo_del_holdout:
+      - "Escaneo estructural completo: parseo de 6 campos por linea, deteccion de timestamps duplicados o fuera de orden dentro de archivo, y validez de OHLC (H>=L, H>=O/C, L<=O/C) -- sin hallazgos de corrupcion en estos 5 archivos."
+      - "Analisis de solapamientos contractuales entre archivos consecutivos, incluido el solapamiento real 25_mnq_06_26 -> 26_mnq_09_26 (~10 dias), que cae integramente dentro del hold-out."
+      - "Deteccion de 3 barras con volumen extremo (100-170x el maximo habitual): 2 de ellas en 22_mnq_09_25.Last.txt (2025-07-01 10:08 y 2025-07-15 13:52) y 1 en 24_mnq_03_26.Last.txt (2026-01-27 03:44) -- las 3 dentro del periodo hoy reservado como hold-out."
+      - "Conteo de filas, tamano en bytes y primer/ultimo timestamp por archivo (usados para dimensionar las alternativas de hold-out, no para evaluarlas por contenido)."
+    que_no_se_hizo:
+      - "Ningun analisis de retornos."
+      - "Ningun analisis de targets ni de labeling."
+      - "Ninguna construccion ni evaluacion de senales."
+      - "Ninguna evaluacion de estrategias."
+      - "Ningun analisis de predictibilidad."
+      - "Ninguna medicion de desempeno (rentabilidad, drawdown, Sharpe u otra metrica economica o de sistema)."
+    clasificacion: "QA pre-lock (CLAUDE.md, regla 7: comprobacion de integridad estructural, no experimento predictivo)."
+    referencias:
+      - "experiments/log/0001_qa_inventario_estructural_data_source.md"
+      - "experiments/log/0002_qa_congelacion_snapshot_y_holdout.md"
+      - "reports/00_inventario_estructural_data_source.md"
+    implicacion: >
+      Esta exposicion previa no invalida ni modifica la frontera aprobada.
+      A partir del estado LOCKED, cualquier acceso adicional al hold-out --
+      incluida cualquier comprobacion estructural nueva, aunque sea del mismo
+      tipo que la ya realizada en 0001 -- requiere autorizacion explicita del
+      usuario y debe quedar trazado en experiments/registro.tsv.

@@ -1,10 +1,18 @@
-# Datos locales y archivos generados (solo el data/ de la raiz del proyecto,
-# no cualquier carpeta llamada "data" en profundidad, p.ej. src/data/)
-#/data/
+# Datos crudos de origen: READ ONLY logico (CLAUDE.md, regla 1). Deben permanecer
+# disponibles localmente pero nunca versionados.
+data/00_source/
+
+# Exportacion de cuenta con credenciales, eliminada del historial el 2026-08-14
+# via git filter-repo. Nunca debe volver a versionarse.
+data/ninja_trader_accounts.xlsx
+
 #notebooks/
 
 # Libros no versionados
 docs/books_and_references/
+
+# Archivo de trabajo/borrador del usuario, no es un artefacto del proyecto.
+prompt.md
 
 # Archivos temporales de Jupyter
 .ipynb_checkpoints/
