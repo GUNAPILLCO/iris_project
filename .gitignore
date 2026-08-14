@@ -1,0 +1,19 @@
+# Datos locales y archivos generados (solo el data/ de la raiz del proyecto,
+# no cualquier carpeta llamada "data" en profundidad, p.ej. src/data/)
+#/data/
+#notebooks/
+
+# Libros no versionados
+docs/books_and_references/
+
+# Archivos temporales de Jupyter
+.ipynb_checkpoints/
+.vscode/
+
+# Caché de Python
+__pycache__/
+*.pyc
+
+# Variables de entorno
+.env
+
